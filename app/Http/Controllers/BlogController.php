@@ -8,6 +8,9 @@ class BlogController extends Controller
 {
     public function index()
     {
-      return view('blog.index');
+      //obtener los ultimos posts de la base de datos
+      //usando tinker
+      $blogs=Blog::all();
+      return view('blog.index', compact('blogs'));
     }
 }
