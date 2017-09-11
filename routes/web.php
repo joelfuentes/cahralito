@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//Route::get('/URL', 'controlador@funcion')->name('nombre');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/blog', 'BlogController@index')->name('blog');
+Route::get('/blog/create', 'BlogController@create')->name('blog/create');
