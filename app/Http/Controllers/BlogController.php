@@ -20,4 +20,19 @@ class BlogController extends Controller
     {
       return view('blog.create');
     }
+
+    //store
+    public function store(Request $request)
+    {
+      $input = $request->all();
+      //var_dump($input); //permite imprimir en pantalla una prueba de lo que se envia
+      Blog::create($input);
+      return back();
+    }
+
+    //mostrar por id
+    public function show($id)
+    {
+
+    }
 }
