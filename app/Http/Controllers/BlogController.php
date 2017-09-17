@@ -54,4 +54,12 @@ class BlogController extends Controller
       return back();
       // var_dump($input);
     }
+
+    //delete
+    public function destroy(Request $request, $id)
+    {
+      $blog=BLog::findOrFail($id);
+      $blog->delete($request->all());
+      return redirect('/blog');
+    }
 }

@@ -31,8 +31,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                      Home
-                        <!-- {{ config('app.name', 'Charal') }} -->
+                      <!-- Home -->
+                        {{ config('app.name', 'Charal') }}
                     </a>
                 </div>
 
