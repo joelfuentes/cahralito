@@ -55,11 +55,19 @@ class BlogController extends Controller
       // var_dump($input);
     }
 
-    //delete
+    //delete (borra permanenetemente)
     public function destroy(Request $request, $id)
     {
       $blog=BLog::findOrFail($id);
       $blog->delete($request->all());
       return redirect('/blog');
+    }
+
+    //soft delete (es posible regresar lo borrado)
+    public function bin()
+    {
+      $deletedBlogs = Blog::onlyTrashed()->get();
+
+      return view('blog.bin', compact('deletedBlogs'));
     }
 }
