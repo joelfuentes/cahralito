@@ -15,8 +15,20 @@
               <h5>ID de recuperacion {{$blog->id}}</h5>
                 <hr>
             </article>
+            {!! Form::open(['method'=>'GET', 'action'=>['BlogController@restore', $blog->id]]) !!}
+            <div class="form-group">
+              {!! Form::submit("recuperar Blog", ['class'  =>  'btn btn-success']) !!}
+            </div>
+            {!! Form::close() !!}
+
+            {!! Form::open(['method'=>'DELETE', 'action'=>['BlogController@destroyBlog', $blog->id]]) !!}
+            <div class="form-group">
+              {!! Form::submit("Destruir Blog", ['class'  =>  'btn btn-danger']) !!}
+            </div>
+            {!! Form::close() !!}
             @endforeach
         </div>
+
 
   </div>
 </main>

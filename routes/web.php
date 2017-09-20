@@ -11,9 +11,12 @@
 |
 */
 Route::get('/blog/bin', 'BlogController@bin')->name('blog/bin');
+Route::get('/blog/bin/{id}/restore', 'BlogController@restore')->name('blog/restore');
+Route::delete('/blog/bin/{id}/destroyblog', 'BlogController@destroyBlog')->name('blog/destroyBlog');
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Auth::routes();
 //Route::get('/URL', 'controlador@funcion')->name('nombre');

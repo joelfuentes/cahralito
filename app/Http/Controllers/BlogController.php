@@ -51,7 +51,7 @@ class BlogController extends Controller
       $input = $request->all();
       $blog=Blog::findOrFail($id);
       $blog->update($input);
-      return back();
+      return redirect('/blog');
       // var_dump($input);
     }
 
@@ -60,7 +60,7 @@ class BlogController extends Controller
     {
       $blog=BLog::findOrFail($id);
       $blog->delete($request->all());
-      return redirect('/blog');
+      return redirect('/blog/bin');
     }
 
     //soft delete (es posible regresar lo borrado)
@@ -75,8 +75,15 @@ class BlogController extends Controller
     public function restore($id)
     {
       $restoredBlogs=Blog::onlyTrashed()->findOrFail($id);
-      $restoredBlogs=restore($restoredBlogs);
-      return redirect('\blog');
+      $restoredBlogs->restore($restoredBlogs);
+      return redirect('/blog');
 
+    }
+
+    public function destroyBlog($id)
+    {
+      $destroyBlog=Blog::onlyTrashed()->findOrFail($id);
+      $destroyBlog->forceDelete($destroyBlog);
+      return back();
     }
 }
