@@ -70,4 +70,13 @@ class BlogController extends Controller
 
       return view('blog.bin', compact('deletedBlogs'));
     }
+
+    //recuperar blogs borrados
+    public function restore($id)
+    {
+      $restoredBlogs=Blog::onlyTrashed()->findOrFail($id);
+      $restoredBlogs=restore($restoredBlogs);
+      return redirect('\blog');
+
+    }
 }

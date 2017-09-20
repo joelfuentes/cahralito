@@ -11,6 +11,8 @@
             <article>
               <h2>{{$blog->title}}</h2>
               <h5>fecha de creacion:  {{$blog->created_at}}</h5>
+              <h5>fecha de eliminacion:  {{$blog->deleted_at}}</h5>
+              <h5>ID de recuperacion {{$blog->id}}</h5>
                 <hr>
             </article>
             @endforeach
