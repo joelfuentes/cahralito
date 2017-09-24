@@ -27,7 +27,7 @@ class BlogController extends Controller
       $input = $request->all();
       //var_dump($input); //permite imprimir en pantalla una prueba de lo que se envia
       Blog::create($input);
-      return back();
+      return redirect('/blog');
     }
 
     //mostrar por id
